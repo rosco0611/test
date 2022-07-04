@@ -1,0 +1,15 @@
+<script>
+    let myFunction=(a,b,callback)=>{
+        let sum=0;
+        for(let i=a; i<=b; i++){
+        document.write(`<div style='color:blue; font-size:20px;''>+${i}+" "</div>`);
+        } 
+        sum+i;
+    } 
+    callback(sum);
+
+    myFunction(1,10,function(sum){
+        document.write(`<font style='color:white; background-color:green; font-size:20px;'>1-10까지의 합:+${sum}+</font>`);
+    });
+
+</script>

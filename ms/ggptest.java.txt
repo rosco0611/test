@@ -1,0 +1,58 @@
+import java.util.Random;
+import java.util.Scanner;
+ 
+public class star {
+    public static void main(String args[]) {
+        while (true) { 
+            Scanner sc = new Scanner(System.in);
+            System.out.println(">> 스무고개 게임 \n                          1.게임설명 / 2.시작/ 3.종료");
+            int help = sc.nextInt();
+ 
+            if (help == 1) {
+                System.out.println("스무고개 게임에 대해 알려드리겠습니다.\n\n");
+                System.out.println("게임방법은 간단합니다. 게임이 시작되면 컴퓨터는 1~999중 1개의 랜덤한 숫자를 생성하고");
+                System.out.println("사용자는 컴퓨터의 숫자를 20번 안에 맞추면 됩니다.");
+ 
+                System.out.println("자 이제 게임을 시작해 주세요!!!\n\n");
+ 
+            } else if (help == 2) {
+                while (true) { // 게임을 무한 반복
+                    System.out.println(">> 게임을 시작합니다.");
+                    int cont = 0;
+                    Random ram = new Random();
+                    int com = ram.nextInt(999) + 1;
+                    System.out.println("컴퓨터의 숫자가 정해졌습니다. 이제 본격적으로 게임을 진행해 주세요");
+                    while (cont < 20) { // 20번까지 반복
+                        System.out.println("\n컴퓨터의 숫자는 몇일까요?");
+                        System.out.println(com);
+                        int play = sc.nextInt();
+                        ++cont;
+                        if (play == com) {
+                            System.out.println("정답입니다. " + cont + "번 만에 맞췄습니다.");
+                            cont = 0;
+                            System.out.println("게임을 계속 진행하시겠습니까?  1.예 / 2.아니요");
+                            int go = sc.nextInt();
+                            if (go == 2) {
+                                System.out.println("게임끝 수고하셨습니다.");
+                                System.exit(0);
+                            } else if (go == 1) {
+                                System.out.println("게임을 계속 진행하겠습니다.");
+                                break;
+                            }
+                        } else if (play > com) { // 입력한 숫자가 클시
+                            System.out.println(cont + ">> 숫자가 너무 높습니다. 조금만 내려주세요");
+                        } else if (play < com) {  // 입력한 숫자가 작을시
+                            System.out.println(cont + ">> 숫자가 너무 낮습니다. 조금만 올려주세요");
+                        }
+                    }
+                    System.out.println("\n------------- 정답은  :  " + com + "이였습니다.-------------\n\n");
+                }
+            } else if (help == 3) {
+                System.out.println("프로그램 종료");
+                System.exit(0);
+            } else {
+                System.out.println("잘못 입력하셨습니다.");
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+package practice;
+
+public class StringStack implements Stack Interface{
+    private String[] element;
+    private int index;
+    public StringStack(int capacity)
+    {
+        element = new String[capacity];
+        index=0;
+    }
+    public int length()
+    {
+        return index;
+    }
+    public String pop()
+    {
+        if(index==0)
+        return null;
+        index--;
+        return element[index];
+    }
+    public boolean push(String ob)
+    {
+        if(index==element.length)
+        return false;
+        element[index++]=ob;
+        return true;
+    }
+}
+
+package practice;
+import java.uril.*;
+
+public class StackManager{
+    public static void main(String[] args){
+        StringStack stack=new StringStack(10);
+        StackInterface s=stack;
+        Scanner Input=new Scanner(System.in);
+        System.out.printIn(">>");
+        for(int i=0; i<5; i++)
+        {
+            String text=Input.next();
+            s.push(text);
+        }
+        int count=s.length();
+        for(int i=0; i<count; i++)
+        {
+            System.out.printIn(s.pop()+" ");
+        }
+        Input.close();
+    }
+}

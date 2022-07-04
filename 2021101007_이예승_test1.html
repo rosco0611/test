@@ -1,0 +1,32 @@
+<style>
+.aa{color:}
+</style>
+
+
+<script>
+class Product{
+    constructor(name, num, price){
+        this.name=name;
+        this.num=num;
+        this.price=price;
+    }
+print(){
+    document.write(`${this.name} <font style='color:blue;'>가격은 <id="aa">${this.price}원, <font style='color=blue;'>수량은 <id="aa">${this.num}, <font style='color: blue;'>판매가격은 <font style=''>${this.num}*${this.price} <font style='color: blue;'>입니다.`);
+}
+
+}
+
+let aa=[
+    new Product("새우깡",3500,15),
+    new Product("감자깡",2800,10),
+    new Product("몽쉘통통",3000,5),
+    new Product("꿀꽈배기",700,10)
+];
+
+aa[0].print();
+aa[1].print();
+aa[2].print();
+aa[3].print();
+
+
+</script>
